@@ -245,40 +245,96 @@ End Class
 Public Class Form1
     Dim length As Integer
     Dim dx As Double, dy As Double
-    Dim x As Double, y As Double
+    Dim x As Integer, y As Integer
     Dim x_temp
     Dim y_temp
     Dim i As Integer
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Draw Square
 
-        dda(120, 40, 120, 80)
-        dda(120, 80, 200, 80)
-        dda(200, 80, 200, 40)
-        dda(200, 40, 120, 40)
-    End Sub
+        Dim x1 As Integer, y1 As Integer, x2 As Integer, y2 As Integer, x7 As Integer, y7 As Integer
+        Dim x3 As Integer, y3 As Integer, x4 As Integer, y4 As Integer
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'Translation Square
+        'original
+        x1 = 120
+        y1 = 40
 
-        dda(120 + 10, 80 + 10, 120 + 10, 40 + 10)
-        dda(120 + 10, 80 + 10, 200 + 10, 80 + 10)
-        dda(200 + 10, 40 + 10, 120 + 10, 40 + 10)
-        dda(200 + 10, 80 + 10, 200 + 10, 40 + 10)
-    End Sub
+        x7 = x1
+        y7 = y1
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        'Scaling Square مع عدم الحفاظ على الموقع الاصلي
+        x2 = 120
+        y2 = 80
 
-        dda(120 * 2, 80 * 2, 120 * 2, 40 * 2)
-        dda(120 * 2, 80 * 2, 200 * 2, 80 * 2)
-        dda(200 * 2, 40 * 2, 120 * 2, 40 * 2)
-        dda(200 * 2, 80 * 2, 200 * 2, 40 * 2)
+        x3 = 200
+        y3 = 80
+
+        x4 = 200
+        y4 = 40
+
+        dda(x1, y1, x2, y2)
+        dda(x1, y1, x3, y3)
+        dda(x2, y2, x4, y4)
+        dda(x3, y3, x4, y4)
+        '==================================
+        'sub
+        x1 = x1 - x7
+        y1 = y1 - y7
+
+        x2 = x2 - x7
+        y2 = y2 - y7
+
+        x3 = x3 - x7
+        y3 = y3 - y7
+
+        x4 = x4 - x7
+        y4 = y4 - y7
+
+        dda(x1, y1, x2, y2)
+        dda(x1, y1, x3, y3)
+        dda(x2, y2, x4, y4)
+        dda(x3, y3, x4, y4)
+
+        '==================================
+        'Scale
+        x1 = x1 * 2
+        y1 = y1 * 2
+
+        x2 = x2 * 2
+        y2 = y2 * 2
+
+        x3 = x3 * 2
+        y3 = y3 * 2
+
+        x4 = x4 * 2
+        y4 = y4 * 2
+
+        dda(x1, y1, x2, y2)
+        dda(x1, y1, x3, y3)
+        dda(x2, y2, x4, y4)
+        dda(x3, y3, x4, y4)
+        '==================================
+        'back to point
+        x1 = x1 + x7
+        y1 = y1 + y7
+
+        x2 = x2 + x7
+        y2 = y2 + y7
+
+        x3 = x3 + x7
+        y3 = y3 + y7
+
+        x4 = x4 + x7
+        y4 = y4 + y7
+
+
+        dda(x1, y1, x2, y2)
+        dda(x1, y1, x3, y3)
+        dda(x2, y2, x4, y4)
+        dda(x3, y3, x4, y4)
     End Sub
 
     Public Sub dda(x1 As Integer, y1 As Integer, x2 As Integer, y2 As Integer)
         Dim g As Graphics = Me.CreateGraphics()
-        Dim mypen As New Pen(Color.Black, 2)
+        Dim mypen As New Pen(Color.DarkRed, 2)
 
         If Math.Abs(x2 - x1) > Math.Abs(y2 - y1) Then
             length = Math.Abs(x2 - x1)
@@ -313,7 +369,9 @@ Public Class Form1
 
         sign_fun = k
     End Function
+
 End Class
+
 
 ```
 
